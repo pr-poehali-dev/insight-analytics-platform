@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
 export default function Index() {
@@ -331,6 +332,175 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Industry Value Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
+              Ценность для вашей отрасли
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Специализированные решения для ключевых индустрий
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                icon: 'UtensilsCrossed',
+                title: 'Общепит (HoReCa)',
+                desc: 'Анализ среднего чека, портрет гостя, доля в его «ресторанном» кошельке, оценка причин оттока',
+              },
+              {
+                icon: 'ShoppingCart',
+                title: 'Розничная торговля',
+                desc: 'Точные прогнозы спроса, «тепловая карта» лояльности, эффективность промо-акций',
+              },
+              {
+                icon: 'Package',
+                title: 'Продукты питания и FMCG',
+                desc: 'Понимание паттернов покупок, реакция на новые товары, анализ корзин',
+              },
+              {
+                icon: 'HeartPulse',
+                title: 'Медицина и фармацевтика',
+                desc: 'Анализ жизненных событий (например, рождение ребенка), формирование кластеров потребителей на основании его потребления',
+              },
+              {
+                icon: 'Car',
+                title: 'Автобизнес',
+                desc: 'Выявление когорт клиентов, купивших автомобиль, определение наиболее эффективных точек касания',
+              },
+              {
+                icon: 'Home',
+                title: 'Товары для дома и ремонта',
+                desc: 'Поиск новосёлов и тех, кто закрыл ипотеку — ваших будущих клиентов',
+              },
+              {
+                icon: 'Laptop',
+                title: 'Электроника и бытовая техника',
+                desc: 'Привязка покупок к жизненным циклам (переезд, обновление семьи)',
+              },
+              {
+                icon: 'Plane',
+                title: 'Туризм и авиаперевозки',
+                desc: 'Выявление когорт покупателей с сформированным паттерном поведения или возросшей платежеспособностью',
+              },
+              {
+                icon: 'CreditCard',
+                title: 'Финансовые услуги',
+                desc: 'Глубокая поведенческая аналитика для оценки склонности к услуге',
+              },
+            ].map((industry, idx) => (
+              <Card key={idx} className="p-6 hover-scale group cursor-pointer border-2 transition-all hover:border-primary">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="bg-primary/10 p-4 rounded-lg group-hover:bg-primary/20 transition-colors">
+                      <Icon name={industry.icon as any} className="text-primary" size={32} />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-secondary">{industry.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{industry.desc}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* B2B Section */}
+      <section className="py-20 bg-gradient-to-br from-secondary to-secondary/90 text-white px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Особое решение для B2B и промышленности
+            </h2>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+              Alfa Insight помогает принимать решения на основе данных о рыночной активности 
+              и финансовом состоянии контрагентов
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: 'TrendingUp',
+                title: 'Прозрачность конечного спроса',
+                points: [
+                  'Видимость потребления по регионам и форматам точек',
+                  'Оценка реальных продаж категории на уровне конечного покупателя',
+                  'Анализ работы каналов сбыта',
+                ],
+              },
+              {
+                icon: 'Users',
+                title: 'Управление дилерской сетью',
+                points: [
+                  'Сравнение активности и эффективности партнёров',
+                  'Выявление «белых пятен»: где спрос есть и требуется усиление',
+                  'Основания для перераспределения бюджетов',
+                ],
+              },
+              {
+                icon: 'Package',
+                title: 'Планирование производства',
+                points: [
+                  'Прогноз спроса по категориям, регионам и сезонам',
+                  'Снижение излишков и дефицитов',
+                  'Поддержка решений по запуску/снятию SKU',
+                ],
+              },
+              {
+                icon: 'Target',
+                title: 'Оценка позиций бренда',
+                points: [
+                  'Доля бренда в кошельке клиента по категории',
+                  'Переключаемость между брендами',
+                  'Анализ эффективности BTL-активностей и промо',
+                ],
+              },
+              {
+                icon: 'Search',
+                title: 'Выявление новых точек роста',
+                points: [
+                  'Находим скрытые связи между отраслями',
+                  'Предсказываем будущий спрос на основе трендов',
+                  'Определяем перспективные сегменты и регионы',
+                ],
+              },
+              {
+                icon: 'Map',
+                title: 'Геоаналитика для логистики',
+                points: [
+                  'Оптимальные локации для складов и производства',
+                  'Данные о концентрации бизнесов-потребителей',
+                  'Анализ транспортных потоков и доступности',
+                ],
+              },
+            ].map((section, idx) => (
+              <Card key={idx} className="bg-white/5 backdrop-blur border-white/10 p-8 hover-scale">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="bg-primary/20 p-3 rounded-lg">
+                    <Icon name={section.icon as any} className="text-primary" size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold">{section.title}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {section.points.map((point, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-3">
+                      <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={18} />
+                      <span className="text-white/90">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Industries Section */}
       <section id="отрасли" className="py-20 bg-accent/50 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -363,24 +533,159 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="контакты" className="py-20 bg-primary text-white px-6">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Готовы принимать решения на основе данных?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Запланируйте демонстрацию платформы и узнайте, как Alfa Insight 
-            может трансформировать ваш бизнес
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-              Запланировать демо
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white/10">
-              Связаться с нами
-            </Button>
+      {/* How We Work Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
+              Как мы начинаем работать
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Простой процесс внедрения от первой встречи до регулярной работы
+            </p>
           </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                number: '1',
+                title: 'Знакомство и скрининг',
+                subtitle: '2-3 встречи',
+                points: [
+                  'Разбираем ваши бизнес-вопросы',
+                  'Показываем, какие модули Alfa Insight могут их закрыть',
+                  'Определяем приоритеты и KPI',
+                ],
+              },
+              {
+                number: '2',
+                title: 'Пилот',
+                subtitle: '1-3 месяца',
+                points: [
+                  'Подключаем вашу компанию к платформе',
+                  'Готовим 1-2 ключевых отчёта и дашборда',
+                  'Тестируем использование внутри команды',
+                ],
+              },
+              {
+                number: '3',
+                title: 'Регулярный сервис',
+                subtitle: 'Долгосрочно',
+                points: [
+                  'Ежемесячные/квартальные обновления аналитики',
+                  'Индивидуальные исследования по запросу',
+                  'Доступ через платформу и API (с 3Q26)',
+                ],
+              },
+            ].map((step, idx) => (
+              <Card key={idx} className="p-8 hover-scale relative overflow-hidden group border-2 transition-all hover:border-primary">
+                <div className="absolute top-0 right-0 text-[120px] font-bold text-primary/5 group-hover:text-primary/10 transition-colors">
+                  {step.number}
+                </div>
+                <div className="relative">
+                  <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    {step.number}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-secondary">{step.title}</h3>
+                  <p className="text-primary font-semibold mb-4">{step.subtitle}</p>
+                  <ul className="space-y-3">
+                    {step.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-3">
+                        <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={18} />
+                        <span className="text-muted-foreground">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="контакты" className="py-20 bg-gradient-to-br from-primary to-primary/80 text-white px-6">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Оставьте заявку
+            </h2>
+            <p className="text-xl text-white/90">
+              Запланируйте демонстрацию платформы и узнайте, как Alfa Insight 
+              может трансформировать ваш бизнес
+            </p>
+          </div>
+
+          <Card className="p-8 md:p-12 bg-white/95 backdrop-blur">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-secondary mb-2">
+                  Имя
+                </label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Введите ваше имя"
+                  className="h-12 text-base"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="company" className="block text-sm font-semibold text-secondary mb-2">
+                  Компания
+                </label>
+                <Input
+                  id="company"
+                  type="text"
+                  placeholder="Название вашей компании"
+                  className="h-12 text-base"
+                  required
+                />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-secondary mb-2">
+                    Телефон
+                  </label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    className="h-12 text-base"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-secondary mb-2">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    className="h-12 text-base"
+                    required
+                  />
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full text-lg py-6 bg-primary hover:bg-primary/90 text-white"
+              >
+                <Icon name="Send" className="mr-2" size={20} />
+                Заказать презентацию для моего бизнеса
+              </Button>
+
+              <p className="text-sm text-muted-foreground text-center">
+                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+              </p>
+            </form>
+          </Card>
         </div>
       </section>
 
